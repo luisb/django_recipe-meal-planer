@@ -32,7 +32,7 @@ def recipes(request):
         )
     
     context = {'recipes': queryset}
-    return render(request, 'recipe.html', context)
+    return render(request, 'home/recipe.html', context)
 
 # Update the recipes data 
 @login_required(login_url='/login/')
@@ -52,7 +52,7 @@ def update_recipe(request, id):
         return redirect('/')
     
     context = {'recipe': queryset}
-    return render(request, 'update_recipe.html', context)
+    return render(request, 'home/update_recipe.html', context)
 
 # Delete the recipes data
 @login_required(login_url='/login/')
@@ -83,7 +83,7 @@ def login_page(request):
             messages.error(request, "Something went wrong")
             return redirect('/register/')
     
-    return render(request, 'login.html')
+    return render(request, 'home/login.html')
 
 # Register page for user
 def register_page(request):
@@ -105,7 +105,7 @@ def register_page(request):
             messages.error(request, "Something went wrong")
             return redirect('/register/')
     
-    return render(request, "register.html")
+    return render(request, "home/register.html")
 
 # Logout function
 def custom_logout(request):
@@ -136,4 +136,4 @@ def pdf(request):
         )
 
     context = {'recipes': queryset}
-    return render(request, 'pdf.html', context)
+    return render(request, 'home/pdf.html', context)
